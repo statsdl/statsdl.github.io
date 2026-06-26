@@ -1044,29 +1044,45 @@
             text-rendering: optimizeLegibility;
         }
 
-    
-        .interest-highlight-card {
-            margin-top: 1.25rem;
-            padding: 1.15rem 1.25rem;
+        .focus-mini-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        .focus-mini-item {
+            padding: 0.95rem 1rem;
             border-radius: var(--radius-md);
             border: 1px solid var(--border-subtle);
-            background: linear-gradient(135deg, #f8fbff 0%, #ffffff 60%, #eef6ff 100%);
+            background: #ffffff;
             box-shadow:
-                0 12px 32px rgba(15, 23, 42, 0.08),
-                0 4px 12px rgba(37, 99, 235, 0.06);
+                0 10px 26px rgba(15, 23, 42, 0.06),
+                0 4px 10px rgba(37, 99, 235, 0.05);
         }
 
-        .interest-highlight-card h3 {
-            font-size: 1rem;
-            font-weight: 650;
+        .focus-mini-item strong {
+            display: block;
             color: var(--text-main);
-            margin-bottom: 0.45rem;
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
         }
 
-        .interest-highlight-card p {
-            font-size: 0.94rem;
+        .focus-mini-item span {
             color: var(--text-muted);
-            line-height: 1.7;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .finance-defi-note {
+            margin-top: 0.85rem;
+            padding: 0.9rem 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+            background: linear-gradient(135deg, #f8fbff 0%, #ffffff 70%);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.65;
         }
 
     </style>
@@ -1228,6 +1244,14 @@
                                 <div class="skill-icon skill-icon--finance">📈</div>
                                 <div>
                                     <h3>Applications in Finance</h3>
+
+                    <!-- FINANCE DEFI UPDATE START -->
+                    <div class="finance-defi-note fade-in">
+                        <strong>Decentralized Finance (DeFi):</strong>
+                        volatility, forecasting, and risk modelling for blockchain-based financial markets.
+                    </div>
+                    <!-- FINANCE DEFI UPDATE END -->
+
                                     <p class="skill-caption">
                                         Data‑driven approaches to modelling markets, risk, and trading behaviour.
                                     </p>
@@ -1245,20 +1269,6 @@
                     </div>
                 </div>
             </div>
-
-                <!-- ADDITIONAL INTERESTS START -->
-                <div class="interest-highlight-card fade-in">
-                    <h3>Additional Research Interests</h3>
-                    <p>
-                        Additional interests include <strong>survival analysis</strong>,
-                        <strong>decentralized finance (DeFi)</strong>,
-                        <strong>medical and healthcare analytics</strong>,
-                        <strong>option pricing</strong>, and <strong>hedging</strong>,
-                        with emphasis on risk modelling, time-to-event prediction,
-                        and decision-making under uncertainty.
-                    </p>
-                </div>
-                <!-- ADDITIONAL INTERESTS END -->
 
         </section>
 
@@ -1400,7 +1410,21 @@
                     </article>
                 </div>
             </div>
-        </section>
+
+                    <!-- RESEARCH FOCUS UPDATE START -->
+                    <div class="focus-mini-list fade-in">
+                        <div class="focus-mini-item">
+                            <strong>Survival Analysis</strong>
+                            <span>Time-to-event modelling for medical, reliability, and duration-based prediction problems.</span>
+                        </div>
+                        <div class="focus-mini-item">
+                            <strong>Option Pricing &amp; Hedging</strong>
+                            <span>Derivative valuation and hedging strategies under uncertainty.</span>
+                        </div>
+                    </div>
+                    <!-- RESEARCH FOCUS UPDATE END -->
+
+</section>
 
         <!-- PUBLICATIONS --------------------------------------------------- -->
         <section id="publications">
