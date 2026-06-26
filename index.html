@@ -746,7 +746,14 @@
             border-left: 3px solid var(--accent-green);
         }
 
-        .pub-top-row {
+        
+
+        .publication-item.featured-paper {
+            border-left: 4px solid var(--primary-soft);
+            background: linear-gradient(135deg, #eef4ff 0%, #ffffff 60%);
+        }
+
+.pub-top-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -1305,6 +1312,42 @@
 
                 <div class="publications-list">
                     <div class="pub-section-subtitle fade-in">Peer‑reviewed articles &amp; conference papers</div>
+
+                    <!-- 2026: Applied Soft Computing heteroscedasticity-based ELSTM -->
+                    <article class="publication-item featured-paper fade-in">
+                        <div class="pub-top-row">
+                            <div class="pub-badges">
+                                <span class="pub-year-pill">2026</span>
+                                <span class="pub-type">Journal article</span>
+                                <span class="pub-status-pill">Published</span>
+                            </div>
+                        </div>
+                        <div class="publication-title">
+                            A heteroscedasticity-based extended long short term memory network for volatility forecasting and risk assessment
+                        </div>
+                        <div class="publication-authors">
+                            Koushik Bera, Aryan Bhambu, N. Selvaraju
+                        </div>
+                        <div class="publication-venue">
+                            <strong>Applied Soft Computing</strong>, 2026, Article 115627.
+                        </div>
+                        <div class="publication-notes">
+                            This study develops a heteroscedasticity-aware extended LSTM framework for volatility forecasting and financial risk assessment, targeting nonlinear, noisy, and heavy-tailed financial time-series dynamics.
+                        </div>
+                        <div class="publication-links">
+                            <a class="pub-link" href="https://doi.org/10.1016/j.asoc.2026.115627" target="_blank" rel="noreferrer">
+                                <span>🔗</span><span>Publisher</span>
+                            </a>
+                            <a class="pub-link" href="https://www.sciencedirect.com/science/article/pii/S1568494626010756" target="_blank" rel="noreferrer">
+                                <span>📘</span><span>ScienceDirect</span>
+                            </a>
+                            <a class="pub-link" href="https://scholar.google.com/citations?user=u3UybosAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                                <span>🎓</span><span>Google Scholar</span>
+                            </a>
+                        </div>
+                    </article>
+
+
 
                     <!-- 2026: Neural Networks -->
                     <article class="publication-item fade-in">
