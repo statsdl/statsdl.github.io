@@ -890,6 +890,61 @@
             color: var(--text-muted);
         }
 
+
+        /* RESEARCH SOFTWARE --------------------------------------------------- */
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .software-card {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+            padding: 1.15rem 1.15rem 1rem;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .software-card h3 {
+            font-size: 1rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .software-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .software-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin-top: 0.35rem;
+        }
+
+        .software-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.82rem;
+            padding: 0.24rem 0.72rem;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-subtle);
+            background: #f9fafb;
+            color: var(--primary-dark);
+        }
+
+        .software-link:hover {
+            border-color: var(--primary-soft);
+            background: #eff6ff;
+            color: var(--primary);
+        }
+
         /* CONTACT ------------------------------------------------------------- */
         .contact-main {
             max-width: 740px;
@@ -1338,13 +1393,6 @@
                             <a class="pub-link" href="https://doi.org/10.1016/j.asoc.2026.115627" target="_blank" rel="noreferrer">
                                 <span>🔗</span><span>Publisher</span>
                             </a>
-                            <a class="pub-link" href="https://github.com/statsdl/heteroscedastic-elstm" target="_blank" rel="noreferrer">
-                                <span>💻</span><span>GitHub</span>
-                            </a>
-
-                            <a class="pub-link" href="https://pypi.org/project/heteroscedastic-elstm/" target="_blank" rel="noreferrer">
-                                <span>📦</span><span>PyPI</span>
-                            </a>
                             <a class="pub-link" href="https://scholar.google.com/citations?user=u3UybosAAAAJ&hl=en" target="_blank" rel="noreferrer">
                                 <span>🎓</span><span>Google Scholar</span>
                             </a>
@@ -1371,6 +1419,10 @@
                         <div class="publication-venue">
                             <strong>Neural Networks</strong>, Volume 195, March 2026, Article 108207.
                         </div>
+                        <div class="publication-notes">
+                            <strong>Software:</strong> PyPI package <code>volatility-edrhn</code> is available; GitHub and PyPI links are listed in the Research Software section below.
+                        </div>
+
                         <div class="publication-links">
                             <a class="pub-link" href="https://doi.org/10.1016/j.neunet.2025.108207" target="_blank" rel="noreferrer">
                                 <span>🔗</span><span>Publisher</span>
@@ -1399,6 +1451,10 @@
                         <div class="publication-venue">
                             <strong>Applied Soft Computing</strong>, Volume 186 (Part C), January 2026, Article 114136.
                         </div>
+                        <div class="publication-notes">
+                            <strong>Software:</strong> PyPI package <code>edrft</code> is available; GitHub and PyPI links are listed in the Research Software section below.
+                        </div>
+
                         <div class="publication-links">
                             <a class="pub-link" href="https://doi.org/10.1016/j.asoc.2025.114136" target="_blank" rel="noreferrer">
                                 <span>🔗</span><span>Publisher</span>
@@ -1427,6 +1483,10 @@
                         <div class="publication-venue">
                             <strong>Neurocomputing</strong>, Volume 638, 14 July 2025, Article 130078.
                         </div>
+                        <div class="publication-notes">
+                            <strong>Software:</strong> PyPI package <code>heteroscedastic-edrvfl</code> is available; GitHub and PyPI links are listed in the Research Software section below.
+                        </div>
+
                         <div class="publication-links">
                             <a class="pub-link" href="https://doi.org/10.1016/j.neucom.2024.130078" target="_blank" rel="noreferrer">
                                 <span>🔗</span><span>Publisher</span>
@@ -1455,6 +1515,10 @@
                         <div class="publication-venue">
                             <strong>Engineering Applications of Artificial Intelligence</strong>, Volume 149, 1 June 2025, Article 110397.
                         </div>
+                        <div class="publication-notes">
+                            <strong>Software:</strong> PyPI package <code>volatility-gamm</code> is available; GitHub and PyPI links are listed in the Research Software section below.
+                        </div>
+
                         <div class="publication-links">
                             <a class="pub-link" href="https://doi.org/10.1016/j.engappai.2025.110397" target="_blank" rel="noreferrer">
                                 <span>🔗</span><span>Publisher</span>
@@ -1569,6 +1633,10 @@
                         <div class="publication-venue">
                             <strong>Applied Soft Computing</strong>, Volume 161, August 2024, Article 111759.
                         </div>
+                        <div class="publication-notes">
+                            <strong>Software:</strong> PyPI package <code>redrvfl</code> is available; GitHub and PyPI links are listed in the Research Software section below.
+                        </div>
+
                         <div class="publication-links">
                             <a class="pub-link" href="https://doi.org/10.1016/j.asoc.2024.111759" target="_blank" rel="noreferrer">
                                 <span>🔗</span><span>Publisher</span>
@@ -1817,6 +1885,66 @@
                 </div>
             </div>
         </section>
+    
+        <!-- RESEARCH SOFTWARE LINKS --------------------------------------- -->
+        <section id="software">
+            <div class="section-inner">
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Research Software</h2>
+                    <p class="section-subtitle">
+                        GitHub and PyPI links for research-code packages associated with selected publications.
+                    </p>
+                </div>
+
+                <div class="software-grid">
+                    <article class="software-card fade-in">
+                        <h3>RedRVFL</h3>
+                        <p>Recurrent ensemble RVFL package for financial time-series forecasting.</p>
+                        <div class="software-links">
+                            <a class="software-link" href="https://github.com/statsdl/RedRVFL" target="_blank" rel="noreferrer">💻 GitHub</a>
+                            <a class="software-link" href="https://pypi.org/project/redrvfl/" target="_blank" rel="noreferrer">📦 PyPI</a>
+                        </div>
+                    </article>
+
+                    <article class="software-card fade-in">
+                        <h3>edRFT</h3>
+                        <p>Deep RVFL transformer network package for significant wave-height forecasting.</p>
+                        <div class="software-links">
+                            <a class="software-link" href="https://github.com/statsdl/edRFT" target="_blank" rel="noreferrer">💻 GitHub</a>
+                            <a class="software-link" href="https://pypi.org/project/edrft/" target="_blank" rel="noreferrer">📦 PyPI</a>
+                        </div>
+                    </article>
+
+                    <article class="software-card fade-in">
+                        <h3>volatility-gamm</h3>
+                        <p>GARCH-based MLP Mixer package for volatility forecasting and risk assessment.</p>
+                        <div class="software-links">
+                            <a class="software-link" href="https://github.com/statsdl/GaMM" target="_blank" rel="noreferrer">💻 GitHub</a>
+                            <a class="software-link" href="https://pypi.org/project/volatility-gamm/" target="_blank" rel="noreferrer">📦 PyPI</a>
+                        </div>
+                    </article>
+
+                    <article class="software-card fade-in">
+                        <h3>volatility-edrhn</h3>
+                        <p>Randomized deep Hopfield network package for volatility time-series forecasting.</p>
+                        <div class="software-links">
+                            <a class="software-link" href="https://github.com/statsdl/volatility-edrhn" target="_blank" rel="noreferrer">💻 GitHub</a>
+                            <a class="software-link" href="https://pypi.org/project/volatility-edrhn/" target="_blank" rel="noreferrer">📦 PyPI</a>
+                        </div>
+                    </article>
+
+                    <article class="software-card fade-in">
+                        <h3>heteroscedastic-edrvfl</h3>
+                        <p>Heteroscedastic ensemble deep RVFL package for high-frequency volatility forecasting.</p>
+                        <div class="software-links">
+                            <a class="software-link" href="https://github.com/statsdl/heteroscedastic-edrvfl" target="_blank" rel="noreferrer">💻 GitHub</a>
+                            <a class="software-link" href="https://pypi.org/project/heteroscedastic-edrvfl/" target="_blank" rel="noreferrer">📦 PyPI</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- FOOTER ------------------------------------------------------------ -->
