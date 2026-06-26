@@ -1043,7 +1043,31 @@
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
         }
-</style>
+
+        /* RESEARCH AREA CARD BALANCE --------------------------------------- */
+        .research-grid {
+            align-items: stretch;
+        }
+
+        .research-card {
+            height: 100%;
+            min-height: 245px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .research-card p {
+            line-height: 1.62;
+        }
+
+        @media (max-width: 900px) {
+            .research-card {
+                min-height: auto;
+            }
+        }
+
+    </style>
 </head>
 <body>
     <!-- NAVIGATION -------------------------------------------------------- -->
@@ -1336,13 +1360,9 @@
 
                 <div class="research-grid">
                     <article class="research-card fade-in">
-                        <div class="research-label">Time series</div>
-                        <h3>Time series forecasting</h3>
-                        <p>
-                            Forecasting problems involving long-sequence modeling, such as asset prices, volatility, 
-                            significant wave height, and structural loads, using novel deep architectures 
-                            and ensembles capable of capturing nonlinear behavior and time-varying variability.
-                        </p>
+                        <div class="research-label">TIME-DEPENDENT</div>
+                        <h3>Time-dependent forecasting</h3>
+                        <p>Forecasting and modelling problems involving time-dependent data, including asset prices, volatility, significant wave height, structural loads, and event-time dynamics, using deep architectures and ensembles capable of capturing nonlinear behaviour and time-varying uncertainty.</p>
                     </article>
 
                     <article class="research-card fade-in">
