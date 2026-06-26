@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aryan Bhambu | Research Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* RESET & THEME ------------------------------------------------------- */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Light, human-friendly palette (blue / green / grey / near-black) */
+            --bg: #f4f5fb;                /* page background */
+            --bg-alt: #eef2ff;
+
+            --surface: #ffffff;           /* default card */
+            --surface-soft: #f9fafb;      /* soft grey */
+            --surface-hero: linear-gradient(135deg, #e5f0ff 0%, #f7fbff 40%, #ffffff 100%);
+
+            --nav-bg: rgba(255, 255, 255, 0.96);
+
+            --primary: #2563eb;           /* blue */
+            --primary-soft: #3b82f6;
+            --primary-dark: #1d4ed8;
+
+            --accent-green: #16a34a;
+            --accent-green-soft: #22c55e;
+
+            --text-main: #111827;         /* almost black */
+            --text-muted: #4b5563;
+            --text-soft: #6b7280;
+
+            --border-subtle: #e5e7eb;
+            --border-strong: #cbd5f5;
+
+            --chip-bg-blue: #e0edff;
+            --chip-border-blue: #bfd3ff;
+            --chip-bg-grey: #f3f4f6;
+
+            --shadow-soft: 0 14px 35px rgba(148, 163, 184, 0.35);
+
+            --radius-xl: 26px;
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --radius-pill: 999px;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at 0 0, #eef2ff 0%, #f7f7fb 45%, var(--bg) 100%);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: var(--primary-soft);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* LAYOUT ------------------------------------------------------------- */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem 2rem;
+        }
+
+        section {
+            padding: 3.25rem 0;
+        }
+
+        section:last-of-type {
+            padding-bottom: 2rem;
+        }
+
+        .section-inner {
+            width: 100%;
+        }
+
+        .section-header {
+            margin-bottom: 2.25rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: clamp(2.1rem, 2.7vw, 2.6rem);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: var(--text-main);
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 32px;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--primary-soft), var(--accent-green));
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-top: 0.8rem;
+            font-size: 0.98rem;
+            max-width: none;
+        }
+
+        /* NAVBAR ------------------------------------------------------------- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+            box-shadow: 0 8px 18px rgba(148, 163, 184, 0.2);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+        }
+
+        .brand-mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 20%, #93c5fd 0, #e0ebff 60%, #ffffff 100%);
+            border: 1px solid #dbeafe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #1e3a8a;
+        }
+
+        .brand-text-main {
+            font-weight: 600;
+            font-size: 1.02rem;
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 1.4rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            position: relative;
+            padding-block: 0.25rem;
+            transition: color 0.18s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -0.3rem;
+            width: 0;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--primary-soft), var(--accent-green));
+            transition: width 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-dark);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            border: 1px solid var(--border-subtle);
+            background: #ffffff;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 16px;
+            height: 2px;
+            border-radius: 999px;
+            background: var(--text-main);
+        }
+
+        @media (max-width: 860px) {
+            .nav-links {
+                position: fixed;
+                inset-inline: 0;
+                top: 56px;
+                padding: 1rem 1.5rem 1.4rem;
+                background: #ffffff;
+                border-bottom: 1px solid var(--border-subtle);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+                transform: translateY(-120%);
+                opacity: 0;
+                pointer-events: none;
+                transition: transform 0.22s ease, opacity 0.22s ease;
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+        }
+
+        /* HERO ---------------------------------------------------------------- */
+        .hero {
+            padding-top: 5.9rem;
+            padding-bottom: 3.25rem;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-grid {
+            background: var(--surface-hero);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-soft);
+            padding: clamp(2.1rem, 2.7vw, 2.6rem);
+            display: grid;
+            grid-template-columns: minmax(0, 3.1fr) minmax(260px, 2fr);
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        @media (max-width: 960px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                padding: 1.8rem 1.6rem;
+            }
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+        }
+
+        .hero-name {
+            font-size: clamp(2.3rem, 3.1vw, 2.9rem);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: var(--text-main);
+        }
+
+        .hero-role {
+            font-size: 1.05rem;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        .hero-affiliation {
+            font-size: 0.92rem;
+            color: var(--text-soft);
+        }
+
+        .hero-description {
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            max-width: 40rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-top: 0.1rem;
+        }
+
+        .hero-tag {
+            font-size: 0.78rem;
+            padding: 0.22rem 0.65rem;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--chip-border-blue);
+            color: #1e3a8a;
+            background: var(--chip-bg-blue);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 0.3rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.55rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: var(--radius-pill);
+            border: 1px solid transparent;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-soft));
+            color: #ffffff;
+            box-shadow: 0 14px 30px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 18px 38px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-outline {
+            background: #ffffff;
+            color: var(--primary-dark);
+            border-color: var(--border-subtle);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-soft);
+            box-shadow: 0 12px 28px rgba(148, 163, 184, 0.25);
+        }
+
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+        }
+
+        .profile-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+            padding: 1.4rem 1.3rem 1.3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .profile-photo-frame {
+            width: 208px;
+            height: 208px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 10%, #dbeafe 0, #eef2ff 40%, #ffffff 100%);
+            border: 1px solid #d1d5db;
+            padding: 4px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 14px 32px rgba(148, 163, 184, 0.45);
+        }
+
+        .profile-photo-frame img {
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            object-fit: cover;
+        }
+
+        .profile-meta {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            text-align: center;
+        }
+
+        .profile-meta-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .profile-meta-role {
+            font-size: 0.88rem;
+            color: var(--primary-dark);
+        }
+
+        .profile-meta-line {
+            font-size: 0.85rem;
+            color: var(--text-soft);
+        }
+
+        .profile-inline-contact {
+            margin-top: 0.6rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--text-soft);
+        }
+
+        .profile-inline-link {
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        .profile-inline-link:hover {
+            color: var(--primary-soft);
+        }
+
+        .profile-inline-sep {
+            color: #9ca3af;
+        }
+
+        .profile-inline-text {
+            color: var(--text-soft);
+        }
+
+        /* ABOUT --------------------------------------------------------------- */
+        .about-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 2.1fr) minmax(260px, 1.8fr);
+            gap: 2.1rem;
+            align-items: flex-start;
+        }
+
+        @media (max-width: 960px) {
+            .about-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .about-text-block {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+            padding: 1.6rem 1.5rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .about-subheading {
+            margin-top: 0.3rem;
+            margin-bottom: 0.45rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .about-text-block ul {
+            padding-left: 1.1rem;
+            list-style: disc;
+            color: var(--text-muted);
+            font-size: 0.94rem;
+        }
+
+        .about-text-block li + li {
+            margin-top: 0.22rem;
+        }
+
+        /* IMPROVED SKILLS CARDS ---------------------------------------------- */
+        .skills-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            align-items: stretch;
+        }
+
+        .skill-card {
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+            padding: 1.1rem 1.15rem 1rem;
+            box-shadow: var(--shadow-soft);
+            background: var(--surface);
+        }
+
+        .skill-card--code {
+            background: linear-gradient(135deg, #e5edff 0%, #ffffff 55%);
+        }
+
+        .skill-card--finance {
+            background: linear-gradient(135deg, #e6f8ef 0%, #ffffff 55%);
+        }
+
+        .skill-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            margin-bottom: 0.55rem;
+        }
+
+        .skill-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .skill-icon--code {
+            background: rgba(37, 99, 235, 0.08);
+            color: var(--primary-dark);
+            border: 1px solid rgba(37, 99, 235, 0.25);
+        }
+
+        .skill-icon--finance {
+            background: rgba(22, 163, 74, 0.08);
+            color: var(--accent-green);
+            border: 1px solid rgba(22, 163, 74, 0.28);
+        }
+
+        .skill-card h3 {
+            font-size: 0.96rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .skill-caption {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            margin-top: 0.14rem;
+        }
+
+        .skill-pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.2rem;
+        }
+
+        .skill-pill {
+            font-size: 0.78rem;
+            padding: 0.2rem 0.75rem;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-soft);
+            background: var(--chip-bg-grey);
+        }
+
+        /* EDUCATION ----------------------------------------------------------- */
+        .education-timeline {
+            position: relative;
+            margin-top: 0.4rem;
+            padding-left: 1.2rem;
+        }
+
+        .education-timeline::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0.3rem;
+            bottom: 0.3rem;
+            width: 2px;
+            background: linear-gradient(to bottom, #cbd5f5, transparent 96%);
+        }
+
+        .edu-item {
+            position: relative;
+            margin-left: 1.6rem;
+            margin-bottom: 1.05rem;
+        }
+
+        .edu-node {
+            position: absolute;
+            left: -24px;
+            top: 0.8rem;
+            width: 11px;
+            height: 11px;
+            border-radius: 999px;
+            border: 2px solid #eef2ff;
+            background: radial-gradient(circle at 30% 30%, #60a5fa, #2563eb);
+            box-shadow: 0 0 0 4px rgba(191, 219, 254, 0.85);
+        }
+
+        .edu-card {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+            padding: 1.15rem 1.15rem 1rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .edu-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+        }
+
+        .edu-institution {
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .edu-badge {
+            font-size: 0.74rem;
+            padding: 0.16rem 0.6rem;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(22, 163, 74, 0.5);
+            color: var(--accent-green);
+            background: #e7f9ee;
+        }
+
+        .edu-degree {
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.1rem;
+        }
+
+        .edu-meta {
+            font-size: 0.8rem;
+            color: var(--text-soft);
+            margin-bottom: 0.4rem;
+        }
+
+        .edu-body {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .edu-body p + p {
+            margin-top: 0.3rem;
+        }
+
+        /* RESEARCH ------------------------------------------------------------ */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.1rem;
+        }
+
+        .research-card {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+            padding: 1.25rem 1.25rem 1.05rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .research-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .research-label {
+            font-size: 0.78rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text-soft);
+        }
+
+        .research-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* PUBLICATIONS -------------------------------------------------------- */
+        .publications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.05rem;
+        }
+
+        .pub-section-subtitle {
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--text-soft);
+            margin-bottom: 0.85rem;
+            text-align: left;
+        }
+
+        .publication-item {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+            padding: 1.2rem 1.25rem 1.05rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .publication-item.preprint {
+            border-left: 3px solid var(--accent-green);
+        }
+
+        .pub-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.7rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .pub-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+        }
+
+        .pub-year-pill {
+            font-size: 0.78rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-soft);
+            background: #f9fafb;
+        }
+
+        .pub-type {
+            font-size: 0.76rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-pill);
+            border: 1px solid #e5e7eb;
+            color: var(--text-soft);
+            background: #f3f4f6;
+        }
+
+        .pub-status-pill {
+            font-size: 0.76rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(22, 163, 74, 0.6);
+            color: var(--accent-green);
+            background: #dcfce7;
+        }
+
+        .publication-title {
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .publication-authors {
+            font-size: 0.87rem;
+            color: var(--text-muted);
+        }
+
+        .publication-venue {
+            font-size: 0.86rem;
+            color: var(--text-soft);
+        }
+
+        .publication-notes {
+            font-size: 0.8rem;
+            color: var(--text-soft);
+        }
+
+        .publication-links {
+            margin-top: 0.35rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            font-size: 0.8rem;
+        }
+
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            color: var(--primary-soft);
+        }
+
+        .pub-link span {
+            font-size: 0.9em;
+        }
+
+        /* ACTIVITIES ---------------------------------------------------------- */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .timeline-item {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+            padding: 1.2rem 1.25rem 1.05rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.7rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-role {
+            font-size: 0.96rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .timeline-year-pill {
+            font-size: 0.78rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-subtle);
+            background: #f9fafb;
+            color: var(--text-soft);
+        }
+
+        .timeline-where {
+            font-size: 0.85rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.08rem;
+        }
+
+        .timeline-when {
+            font-size: 0.82rem;
+            color: var(--text-soft);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-body {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* CONTACT ------------------------------------------------------------- */
+        .contact-main {
+            max-width: 740px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-text {
+            font-size: 0.96rem;
+            color: var(--text-muted);
+            margin-bottom: 1.8rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1rem;
+            justify-items: center;
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+            padding: 1.1rem 1.05rem 0.95rem;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .contact-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: var(--text-main);
+        }
+
+        .contact-icon {
+            font-size: 1.35rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .contact-card p,
+        .contact-card a {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            word-break: break-word;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary-soft);
+        }
+
+        .social-row {
+            margin-top: 1.4rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            font-size: 0.84rem;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .social-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-subtle);
+            background: #f9fafb;
+            color: var(--text-soft);
+        }
+
+        .social-chip:hover {
+            border-color: var(--primary-soft);
+            background: #eff6ff;
+            color: var(--text-main);
+        }
+
+        /* FOOTER -------------------------------------------------------------- */
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 1rem 1.5rem 1.3rem;
+            margin-top: 0.6rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-soft);
+            background: #ffffff;
+        }
+
+        /* ANIMATIONS ---------------------------------------------------------- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -------------------------------------------------------- -->
+    <nav>
+        <div class="nav-inner">
+            <div class="nav-brand">
+                <div class="brand-mark">AB</div>
+                <div>
+                    <div class="brand-text-main">Aryan Bhambu</div>
+                </div>
+            </div>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HERO ---------------------------------------------------------- -->
+        <section id="home" class="hero">
+            <div class="hero-inner fade-in">
+                <div class="hero-grid">
+                    <div class="hero-left">
+                        <h1 class="hero-name">Aryan Bhambu</h1>
+                        <div class="hero-role">PhD Candidate in Mathematics</div>
+                        <div class="hero-affiliation">
+                            Department of Mathematics, Indian Institute of Technology Guwahati
+                        </div>
+
+                        <p class="hero-description">
+                            Specializing in deep learning based modelling for noisy time‑dependent data and 
+                            decision making. Advancing research in randomized neural architectures, ensemble
+                            methods, and uncertainty‑aware predictive modelling.
+                        </p>
+
+                        <div class="hero-tags">
+                            <span class="hero-tag">ML Researcher</span>
+                            <span class="hero-tag">Time Series Analysis</span>
+                            <span class="hero-tag">Quantitative Finance</span>
+                            <span class="hero-tag">Statistical Analysis</span>
+                        </div>
+
+                        <div class="hero-buttons">
+                            <a href="#research" class="btn btn-primary">View research areas</a>
+                            <a href="#publications" class="btn btn-outline">See publications</a>
+                        </div>
+                    </div>
+
+                    <aside class="hero-right">
+                        <div class="profile-card">
+                            <div class="profile-photo-frame">
+                                <img src="profile.jpg" alt="Portrait of Aryan Bhambu">
+                            </div>
+
+                            <div class="profile-meta">
+                                <div class="profile-meta-name">Aryan Bhambu</div>
+                                <div class="profile-meta-role">PhD Candidate · IIT Guwahati</div>
+                                <div class="profile-meta-line">
+                                Time Series · Deep Learning · Deep Reinforcement Learning · Randomized Neural Networks
+                                </div>
+
+                                <div class="profile-inline-contact">
+                                    <a class="profile-inline-link"
+                                       href="https://scholar.google.com/citations?user=u3UybosAAAAJ&hl=en"
+                                       target="_blank" rel="noreferrer">
+                                        Google Scholar
+                                    </a>
+                                    <span class="profile-inline-sep">•</span>
+                                    <a class="profile-inline-link" href="mailto:a.bhambu@iitg.ac.in">
+                                        a.bhambu@iitg.ac.in
+                                    </a>
+                                    <span class="profile-inline-sep">•</span>
+                                    <span class="profile-inline-text">
+                                        IIT Guwahati, Assam, India
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT --------------------------------------------------------- -->
+        <section id="about">
+            <div class="section-inner">
+                <div class="section-header fade-in">
+                    <h2 class="section-title">About me</h2>
+                    <p class="section-subtitle">
+                        I am a PhD candidate at IIT Guwahati, with a background in applied mathematics and machine 
+                        learning, focusing on neural network-based modeling of high-frequency, noisy time-series 
+                        data for forecasting and decision-making.
+                    </p>
+                </div>
+
+                <div class="about-layout">
+                    <div class="about-text-block fade-in">
+                        <h3 class="about-subheading">Research focus</h3>
+                        <ul>
+                            <li>Volatility and risk assessment in high‑frequency and daily financial data.</li>
+                            <li>Forecasting significant wave height and load series.</li>
+                            <li>Model‑based support for trading rules and portfolio selection.</li>
+                        </ul>
+
+                        <h3 class="about-subheading">Methods &amp; themes</h3>
+                        <ul>
+                            <li>Randomized neural networks and RVFL‑type architectures.</li>
+                            <li>Heteroscedastic ensembles and multi‑output forecasting.</li>
+                            <li>Deep reinforcement learning for sequential decision making.</li>
+                            <li>Uncertainty quantification, prediction intervals, and calibration.</li>
+                        </ul>
+                    </div>
+
+                    <div class="skills-grid fade-in">
+                        <article class="skill-card skill-card--code">
+                            <div class="skill-card-header">
+                                <div class="skill-icon skill-icon--code">&lt;/&gt;</div>
+                                <div>
+                                    <h3>Programming &amp; Tools</h3>
+                                    <p class="skill-caption">
+                                        Implementation of research ideas as reproducible experiments and scalable code.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="skill-pill-row">
+                                <span class="skill-pill">Python</span>
+                                <span class="skill-pill">R</span>
+                                <span class="skill-pill">C</span>
+                                <span class="skill-pill">MATLAB</span>
+                                <span class="skill-pill">LaTeX</span>
+                                <span class="skill-pill">HPC</span>
+                                <span class="skill-pill">Dask</span>
+                                <span class="skill-pill">Parallel Computing</span>
+                            </div>
+                        </article>
+
+                        <article class="skill-card skill-card--finance">
+                            <div class="skill-card-header">
+                                <div class="skill-icon skill-icon--finance">📈</div>
+                                <div>
+                                    <h3>Applications in Finance</h3>
+                                    <p class="skill-caption">
+                                        Data‑driven approaches to modelling markets, risk, and trading behaviour.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="skill-pill-row">
+                                <span class="skill-pill">High Frequency Modelling</span>
+                                <span class="skill-pill">Volatility Forecasting</span>
+                                <span class="skill-pill">Portfolio Optimization</span>
+                                <span class="skill-pill">Stock Trading</span>
+                                <span class="skill-pill">Option Pricing</span>
+                                <span class="skill-pill">Risk Assessment</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION ------------------------------------------------------ -->
+        <section id="education">
+            <div class="section-inner">
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Education</h2>
+                </div>
+
+                <div class="education-timeline fade-in">
+                    <!-- PhD -->
+                    <div class="edu-item">
+                        <div class="edu-node"></div>
+                        <div class="edu-card">
+                            <div class="edu-top-row">
+                                <div class="edu-institution">Indian Institute of Technology Guwahati</div>
+                                <div class="edu-badge">PhD · CGPA 8.48 / 10</div>
+                            </div>
+                            <div class="edu-degree">Ph.D., Department of Mathematics</div>
+                            <div class="edu-meta">Jan 2022 – Present · Guwahati, India</div>
+                            <div class="edu-body">
+                                <p>
+                                    Research on deep and randomized neural architectures for time series,
+                                    including volatility forecasting, risk assessment, and decision-making
+                                    with applications in financial and physical (wave/load) data.
+                                </p>
+                                <p>
+                                    Supervisors:
+                                    <a href="https://scholar.google.com/citations?hl=en&user=_Ps47yUAAAAJ" target="_blank" rel="noreferrer">
+                                        Prof. Selvaraju Natarajan
+                                    </a>
+                                    (Department of Mathematics, IIT Guwahati) and
+                                    <a href="https://scholar.google.com/citations?hl=en&user=yZNzBU0AAAAJ" target="_blank" rel="noreferrer">
+                                        Prof. Ponnuthurai Nagaratnam Suganthan
+                                    </a>
+                                    (Department of Computer Science and Engineering, Qatar University).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MSc -->
+                    <div class="edu-item">
+                        <div class="edu-node"></div>
+                        <div class="edu-card">
+                            <div class="edu-top-row">
+                                <div class="edu-institution">Indian Institute of Technology Mandi</div>
+                                <div class="edu-badge">M.Sc. · CGPA 9.03 / 10</div>
+                            </div>
+                            <div class="edu-degree">M.Sc. in Applied Mathematics</div>
+                            <div class="edu-meta">Aug 2019 – Jul 2021 · Mandi, India</div>
+                            <div class="edu-body">
+                                <p><strong>Master's thesis:</strong> Applications of Deep Learning in Supervised Data Analysis</p>
+                                <p>
+                                    Advisors: 
+                                    <a href="https://scholar.google.co.in/citations?user=BlAsfO8AAAAJ&hl=en" target="_blank" rel="noreferrer">
+                                    Prof. Manoj Thakur 
+                                    </a>
+                                    and 
+                                    <a href="https://scholar.google.co.in/citations?user=qZkww5oAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                                    Prof. Samar Agnihotri
+                                    </a>
+                                </p>
+                                <p>
+                                    Utilized Convolutional based GANs for image generation; deep networks (FNN, CNN, ResNets) for
+                                    image classification; and RNN, LSTM, GRU, and Bi-LSTM models for financial forecasting.
+                                </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BSc -->
+                    <div class="edu-item">
+                        <div class="edu-node"></div>
+                        <div class="edu-card">
+                            <div class="edu-top-row">
+                                <div class="edu-institution">Maharaja's College, University of Rajasthan</div>
+                                <div class="edu-badge">B.Sc. · 70.89%</div>
+                            </div>
+                            <div class="edu-degree">B.Sc. Pass Course</div>
+                            <div class="edu-meta">Jul 2016 – Jun 2019 · Jaipur, India</div>
+                            <div class="edu-body">
+                                <p>
+                                    Foundational training in mathematics and quantitative sciences.
+                                </p>
+                                <p>
+                                    <strong>Award:</strong> DST-Inspire Scholar (2016–2021), scholarship for
+                                    meritorious students in Natural and Basic Sciences.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESEARCH AREAS ------------------------------------------------- -->
+        <section id="research">
+            <div class="section-inner">
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Research areas</h2>
+                    <p class="section-subtitle">
+                        I aim to design models that are both statistically principled and practically usable
+                        by investors, engineers, and researchers working with complex time‑dependent data.
+                    </p>
+                </div>
+
+                <div class="research-grid">
+                    <article class="research-card fade-in">
+                        <div class="research-label">Time series</div>
+                        <h3>Time series forecasting</h3>
+                        <p>
+                            Forecasting problems involving long-sequence modeling, such as asset prices, volatility, 
+                            significant wave height, and structural loads, using novel deep architectures 
+                            and ensembles capable of capturing nonlinear behavior and time-varying variability.
+                        </p>
+                    </article>
+
+                    <article class="research-card fade-in">
+                        <div class="research-label">Finance</div>
+                        <h3>Financial decision making</h3>
+                        <p>
+                            Data‑driven approaches for portfolio design and trading using deep reinforcement learning 
+                            based strategies by integrating volatility information, risk profiles, and market 
+                            information into investment decisions.
+                        </p>
+                    </article>
+
+                    <article class="research-card fade-in">
+                        <div class="research-label">Architectures</div>
+                        <h3>Randomized neural networks</h3>
+                        <p>
+                            Random vector functional link networks, deep and contextual aware‑RVFL, and memory-based 
+                            deep RVFLs for efficient and multi‑output forecasting and uncertainty estimation 
+                            for time series forecasting.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUBLICATIONS --------------------------------------------------- -->
+        <section id="publications">
+            <div class="section-inner">
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Publications</h2>
+                </div>
+
+                <div class="publications-list">
+                    <div class="pub-section-subtitle fade-in">Peer‑reviewed articles &amp; conference papers</div>
+
+                    <!-- 2026: Neural Networks -->
+                    <article class="publication-item fade-in">
+                        <div class="pub-top-row">
+                            <div class="pub-badges">
+                                <span class="pub-year-pill">2026</span>
+                                <span class="pub-type">Journal article</span>
+                                <span class="pub-status-pill">Published</span>
+                            </div>
+                        </div>
+                        <div class="publication-title">
+                            Randomized deep Hopfield network with multiple output layers for volatility time series forecasting
+                        </div>
+                        <div class="publication-authors">
+                            Aryan Bhambu, Selvaraju Natarajan, Ponnuthurai Nagaratnam Suganthan
+                        </div>
+                        <div class="publication-venue">
+                            <strong>Neural Networks</strong>, Volume 195, March 2026, Article 108207.
+                        </div>
+                        <div class="publication-links">
+                            <a class="pub-link" href="https://doi.org/10.1016/j.neunet.2025.108207" target="_blank" rel="noreferrer">
+                                <span>🔗</span><span>Publisher</span>
+                            </a>
+                            <a class="pub-link" href="https://scholar.google.com/citations?user=u3UybosAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                                <span>🎓</span><span>Google Scholar</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 2026: Applied Soft Computing (wave height) -->
+                    <article class="publication-item fade-in">
+                        <div class="pub-top-row">
+                            <div class="pub-badges">
+                                <span class="pub-year-pill">2026</span>
+                                <span class="pub-type">Journal article</span>
+                                <span class="pub-status-pill">Published</span>
+                            </div>
+                        </div>
+                        <div class="publication-title">
+                            Deep random vector functional link transformer network with multiple output layers for significant wave height forecasting
+                        </div>
+                        <div class="publication-authors">
+                            Aryan Bhambu, Ruobin Gao, Ponnuthurai Nagaratnam Suganthan, Selvaraju Natarajan
+                        </div>
+                        <div class="publication-venue">
+                            <strong>Applied Soft Computing</strong>, Volume 186 (Part C), January 2026, Article 114136.
+                        </div>
+                        <div class="publication-links">
+                            <a class="pub-link" href="https://doi.org/10.1016/j.asoc.2025.114136" target="_blank" rel="noreferrer">
+                                <span>🔗</span><span>Publisher</span>
+                            </a>
+                            <a class="pub-link" href="https://scholar.google.com/citations?user=u3UybosAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                                <span>🎓</span><span>Google Scholar</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 2025: Neurocomputing -->
+                    <article class="publication-item fade-in">
+                        <div class="pub-top-row">
+                            <div class="pub-badges">
+                                <span class="pub-year-pill">2025</span>
+                                <span class="pub-type">Journal article</span>
+                                <span class="pub-status-pill">Published</span>
+                            </div>
+                        </div>
+                        <div class="publication-title">
+                            Heteroscedastic ensemble deep random vector functional link neural network with multiple output layers for high‑frequency volatility forecasting and risk assessment
+                        </div>
+                        <div class="publication-authors">
+                            Aryan Bhambu, Ponnuthurai Nagaratnam Suganthan, Selvaraju Natarajan
+                        </div>
+                        <div class="publication-venue">
+                            <strong>Neurocomputing</strong>, Volume 638, 14 July 2025, Article 130078.
+                        </div>
+                        <div class="publication-links">
+                            <a class="pub-link" href="https://doi.org/10.1016/j.neucom.2024.130078" target="_blank" rel="noreferrer">
+                                <span>🔗</span><span>Publisher</span>
+                            </a>
+                            <a class="pub-link" href="https://scholar.google.com/citations?user=u3UybosAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                                <span>🎓</span><span>Google Scholar</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 2025: Eng. Applications of AI -->
+                    <article class="publication-item fade-in">
+                        <div class="pub-top-row">
+                            <div class="pub-badges">
+                                <span class="pub-year-pill">2025</span>
+                                <span class="pub-type">Journal article</span>
+                                <span class="pub-status-pill">Published</span>
+                            </div>
+                        </div>
+                        <div class="publication-title">
+                            High frequency volatility forecasting and risk assessment using neural networks‑based heteroscedasticity model
+                        </div>
+                        <div class="publication-authors">
+                            Aryan Bhambu, Koushik Bera, Selvaraju Natarajan, Ponnuthurai Nagaratnam Suganthan
+                        </div>
+                        <div class="publication-venue">
+                            <strong>Engineering Applications of Artificial Intelligence</strong>, Volume 149, 1 June 2025, Article 110397.
+                        </div>
+                        <div class="publication-links">
+                            <a class="pub-link" href="https://doi.org/10.1016/j.engappai.2025.110397" target="_blank" rel="noreferrer">
+                                <span>🔗</span><span>Publisher</span>
+                            </a>
+                            <a class="pub-link" href="https://scholar.google.com/citations?user=u3UybosAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                                <span>🎓</span><span>Google Scholar</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 2025: Deep RL ICLR workshop -->
+                    <article class="publication-item fade-in">
+                        <div class="pub-top-row">
+                            <div class="pub-badges">
+                                <span class="pub-year-pill">2025</span>
+                                <span class="pub-type">Workshop / conference</span>
+                                <span class="pub-status-pill">Published</span>
+                            </div>
+                        </div>
+                        <div class="publication-title">
+                            Deep Reinforcement Learning for Investor‑Specific Portfolio Optimization: A Volatility‑Guided Asset Selection Approach
+                        </div>
+                        <div class="publication-authors">
+                            Arishi Orra, Aryan Bhambu, Himanshu Choudhary, Manoj Thakur, Selvaraju Natarajan
+                        </div>
+                        <div class="publication-venue">
+                            <strong>Advances in Financial AI Workshop</strong>, International Conference on Learning Representations (ICLR) 2025, Singapore, 28 April 2025.
+                        </div>
+                        <div class="publication-notes">
+                            Also available as arXiv preprint arXiv:2505.03760.
+                        </div>
+                        <div class="publication-links">
+                            <a class="pub-link" href="https://arxiv.org/abs/2505.03760" target="_blank" rel="noreferrer">
+                                <span>📄</span><span>arXiv</span>
+                            </a>
+                            <a class="pub-link" href="https://scholar.google.com/citations?user=u3UybosAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                                <span>🎓</span><span>Google Scholar</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 2025: Book chapter -->
+                    <article class="publication-item fade-in">
+                        <div class="pub-top-row">
+                            <div class="pub-badges">
+                                <span class="pub-year-pill">2025</span>
+                                <span class="pub-type">Book chapter</span>
+                                <span class="pub-status-pill">Published</span>
+                            </div>
+                        </div>
+                        <div class="publication-title">
+                            A Heteroscedastic Neural Network Framework for Volatility Prediction
+                        </div>
+                        <div class="publication-authors">
+                            Koushik Bera, Aryan Bhambu, Prakash Raj, Selvaraju Natarajan
+                        </div>
+                        <div class="publication-venue">
+                            In <strong>Optimization and Artificial Intelligent Strategies for Engineering and Management</strong>,
+                            BS Publications, 2025, pp. 60–67.
+                        </div>
+                        <div class="publication-links">
+                            <a class="pub-link" href="https://scholar.google.com/citations?user=u3UybosAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                                <span>🎓</span><span>Google Scholar</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 2024: ICAIF -->
+                    <article class="publication-item fade-in">
+                        <div class="pub-top-row">
+                            <div class="pub-badges">
+                                <span class="pub-year-pill">2024</span>
+                                <span class="pub-type">Conference paper</span>
+                                <span class="pub-status-pill">Published</span>
+                            </div>
+                        </div>
+                        <div class="publication-title">
+                            Dynamic Reinforced Ensemble using Bayesian Optimization for Stock Trading
+                        </div>
+                        <div class="publication-authors">
+                            Arishi Orra, Aryan Bhambu, Himanshu Choudhary, Manoj Thakur
+                        </div>
+                        <div class="publication-venue">
+                            <strong>Proceedings of the 5th ACM International Conference on AI in Finance (ICAIF 2024)</strong>,
+                            Brooklyn, NY, 14–17 November 2024, pp. 361–369.
+                        </div>
+                        <div class="publication-links">
+                            <a class="pub-link" href="https://dl.acm.org/doi/10.1145/3677052.3698595" target="_blank" rel="noreferrer">
+                                <span>🔗</span><span>Publisher</span>
+                            </a>
+                            <a class="pub-link" href="https://scholar.google.com/citations?user=u3UybosAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                                <span>🎓</span><span>Google Scholar</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 2024: Applied Soft Computing RVFL -->
+                    <article class="publication-item fade-in">
+                        <div class="pub-top-row">
+                            <div class="pub-badges">
+                                <span class="pub-year-pill">2024</span>
+                                <span class="pub-type">Journal article</span>
+                                <span class="pub-status-pill">Published</span>
+                            </div>
+                        </div>
+                        <div class="publication-title">
+                            Recurrent ensemble random vector functional link neural network for financial time series forecasting
+                        </div>
+                        <div class="publication-authors">
+                            Aryan Bhambu, Ruobin Gao, Ponnuthurai Nagaratnam Suganthan
+                        </div>
+                        <div class="publication-venue">
+                            <strong>Applied Soft Computing</strong>, Volume 161, August 2024, Article 111759.
+                        </div>
+                        <div class="publication-links">
+                            <a class="pub-link" href="https://doi.org/10.1016/j.asoc.2024.111759" target="_blank" rel="noreferrer">
+                                <span>🔗</span><span>Publisher</span>
+                            </a>
+                            <a class="pub-link" href="https://scholar.google.com/citations?user=u3UybosAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                                <span>🎓</span><span>Google Scholar</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 2023: Stock market prediction -->
+                    <article class="publication-item fade-in">
+                        <div class="pub-top-row">
+                            <div class="pub-badges">
+                                <span class="pub-year-pill">2023</span>
+                                <span class="pub-type">Conference paper</span>
+                                <span class="pub-status-pill">Published</span>
+                            </div>
+                        </div>
+                        <div class="publication-title">
+                            Stock Market Prediction Using Deep Learning Techniques for Short and Long Horizon
+                        </div>
+                        <div class="publication-authors">
+                            Aryan Bhambu
+                        </div>
+                        <div class="publication-venue">
+                            In <strong>Soft Computing for Problem Solving</strong>, Lecture Notes in Networks and Systems,
+                            vol. 547, Springer, first online 2 March 2023, pp. 121–135.
+                        </div>
+                        <div class="publication-links">
+                            <a class="pub-link" href="https://link.springer.com/chapter/10.1007/978-981-19-6525-8_11" target="_blank" rel="noreferrer">
+                                <span>🔗</span><span>Publisher</span>
+                            </a>
+                            <a class="pub-link" href="https://scholar.google.com/citations?user=u3UybosAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                                <span>🎓</span><span>Google Scholar</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- PREPRINTS -->
+                    <div class="pub-section-subtitle fade-in" style="margin-top: 1.4rem;">
+                        Preprints (arXiv)
+                    </div>
+
+                    <!-- 2024: COBRA preprint -->
+                    <article class="publication-item preprint fade-in">
+                        <div class="pub-top-row">
+                            <div class="pub-badges">
+                                <span class="pub-year-pill">2024</span>
+                                <span class="pub-type">Preprint</span>
+                            </div>
+                        </div>
+                        <div class="publication-title">
+                            Some variation of COBRA in sequential learning setup
+                        </div>
+                        <div class="publication-authors">
+                            Aryan Bhambu, Arabin Kumar Dey
+                        </div>
+                        <div class="publication-venue">
+                            <strong>arXiv preprint</strong> arXiv:2405.04539, submitted 7 April 2024.
+                        </div>
+                        <div class="publication-links">
+                            <a class="pub-link" href="https://arxiv.org/abs/2405.04539" target="_blank" rel="noreferrer">
+                                <span>📄</span><span>arXiv</span>
+                            </a>
+                            <a class="pub-link" href="https://scholar.google.com/citations?user=u3UybosAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                                <span>🎓</span><span>Google Scholar</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 2022: Confidence interval preprint -->
+                    <article class="publication-item preprint fade-in">
+                        <div class="pub-top-row">
+                            <div class="pub-badges">
+                                <span class="pub-year-pill">2022</span>
+                                <span class="pub-type">Preprint</span>
+                            </div>
+                        </div>
+                        <div class="publication-title">
+                            Confidence Interval Construction for Multivariate time series using Long Short Term Memory Network
+                        </div>
+                        <div class="publication-authors">
+                            Aryan Bhambu, Arabin Kumar Dey
+                        </div>
+                        <div class="publication-venue">
+                            <strong>arXiv preprint</strong> arXiv:2211.13915, submitted 25 November 2022.
+                        </div>
+                        <div class="publication-links">
+                            <a class="pub-link" href="https://arxiv.org/abs/2211.13915" target="_blank" rel="noreferrer">
+                                <span>📄</span><span>arXiv</span>
+                            </a>
+                            <a class="pub-link" href="https://scholar.google.com/citations?user=u3UybosAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                                <span>🎓</span><span>Google Scholar</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACTIVITIES ----------------------------------------------------- -->
+        <section id="activities">
+            <div class="section-inner">
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Academic activities &amp; experience</h2>
+                </div>
+
+                <div class="timeline">
+                    <article class="timeline-item fade-in">
+                        <div class="timeline-header">
+                            <div class="timeline-role">Teaching Assistant</div>
+                            <span class="timeline-year-pill">2023 – Present</span>
+                        </div>
+                        <div class="timeline-where">IIT Guwahati</div>
+                        <div class="timeline-when">Jul 2023 – Present</div>
+                        <div class="timeline-body">
+                            Teaching assistant for courses including Real Analysis and Calculus (MA101),
+                            Statistical Analysis (MA683), Linear Algebra, Monte Carlo Simulation (MA373),
+                            Financial Engineering Laboratory (MA374), and the B.Sc. in Data Science &amp; AI
+                            (Coursera) programme.
+                        </div>
+                    </article>
+
+                    <article class="timeline-item fade-in">
+                        <div class="timeline-header">
+                            <div class="timeline-role">Reviewer</div>
+                            <span class="timeline-year-pill">2023 – Present</span>
+                        </div>
+                        <div class="timeline-where">Elsevier and others</div>
+                        <div class="timeline-when">Nov 2023 – Present</div>
+                        <div class="timeline-body">
+                            Active reviewer for journals including <em>Neurocomputing</em>, <em>Applied Soft Computing</em>,
+                            <em>Neural Networks</em>, <em>Pattern Recognition</em>, <em>Engineering Applications of Artificial Intelligence</em>,
+                            <em>Computers &amp; Electrical Engineering</em>, and the <em>International Journal of Cognitive Computing in Engineering</em>.
+                        </div>
+                    </article>
+                        
+                    <article class="timeline-item fade-in">
+                        <div class="timeline-header">
+                            <div class="timeline-role">Secretary, Research Scholars’ Forum (RSF)</div>
+                            <span class="timeline-year-pill">2023 – 2025</span>
+                        </div>
+                        <div class="timeline-where">Department of Mathematics, IIT Guwahati</div>
+                        <div class="timeline-when">Aug 2023 – September 2025</div>
+                        <div class="timeline-body">
+                            Coordinating workshops and seminars, representing research scholars in departmental
+                            meetings, and helping shape the academic environment for the PhD community.
+                        </div>
+                    </article>
+
+                    <article class="timeline-item fade-in">
+                        <div class="timeline-header">
+                            <div class="timeline-role">Research Intern</div>
+                            <span class="timeline-year-pill">2022</span>
+                        </div>
+                        <div class="timeline-where">MEDSOLU (OPC) Pvt. Ltd.</div>
+                        <div class="timeline-when">Summer 2022</div>
+                        <div class="timeline-body">
+                            Conducted qualitative and quantitative research on real‑time series forecasting
+                            for sustainable profit generation by investors, exploring practical deployment
+                            of ML‑based forecasting pipelines.
+                        </div>
+                    </article>
+
+                    <article class="timeline-item fade-in">
+                        <div class="timeline-header">
+                            <div class="timeline-role">Research Council Member</div>
+                            <span class="timeline-year-pill">2020 – 2021</span>
+                        </div>
+                        <div class="timeline-where">IIT Mandi</div>
+                        <div class="timeline-when">Sep 2020 – Jul 2021</div>
+                        <div class="timeline-body">
+                            Contributed to discussions on R&amp;D programmes and future directions for
+                            laboratory and industry‑facing projects in the mathematical sciences.
+                        </div>
+                    </article>
+
+                    <article class="timeline-item fade-in">
+                        <div class="timeline-header">
+                            <div class="timeline-role">DST Inspire Intern</div>
+                            <span class="timeline-year-pill">2020</span>
+                        </div>
+                        <div class="timeline-where">IIT Mandi</div>
+                        <div class="timeline-when">Spring 2020</div>
+                        <div class="timeline-body">
+                            Studied theoretical aspects of deep learning and artificial neural networks,
+                            and implemented models in Python under the supervision of Dr. Manoj Thakur.
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -------------------------------------------------------- -->
+        <section id="contact">
+            <div class="section-inner">
+                <div class="section-header fade-in">
+                    <h2 class="section-title">Get in touch</h2>
+                    <p class="section-subtitle">
+                        For research collaborations, seminar invitations, reviewing, or academic discussions
+                        on time series analysis and financial decision making using deep learning and reinforcement learning techniques,
+                        feel free to reach out using the channels below.
+                    </p>
+                </div>
+
+                <div class="contact-main">
+                    <div class="contact-grid">
+                        <article class="contact-card fade-in">
+                            <div class="contact-icon">📧</div>
+                            <h3>Email</h3>
+                            <a href="mailto:a.bhambu@iitg.ac.in">a.bhambu@iitg.ac.in</a>
+                        </article>
+
+                        <article class="contact-card fade-in">
+                            <div class="contact-icon">📍</div>
+                            <h3>Location</h3>
+                            <p>
+                                Department of Mathematics<br>
+                                IIT Guwahati – 781039<br>
+                                Assam, India
+                            </p>
+                        </article>
+
+                        <article class="contact-card fade-in">
+                            <div class="contact-icon">📱</div>
+                            <h3>Phone</h3>
+                            <a href="tel:+919928266099">+91-9928266099</a>
+                        </article>
+                    </div>
+
+                    <div class="social-row fade-in">
+                        <a class="social-chip" href="https://scholar.google.com/citations?user=u3UybosAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                            <span>🎓</span><span>Google Scholar</span>
+                        </a>
+                        <a class="social-chip" href="https://www.linkedin.com/in/aryan-bhambu-b098931a1?" target="_blank" rel="noreferrer">
+                            <span>💼</span><span>LinkedIn</span>
+                        </a>
+                        <a class="social-chip" href="https://github.com/aryanbhambu" target="_blank" rel="noreferrer">
+                            <span>💻</span><span>GitHub</span>
+                        </a>
+                        <a class="social-chip" href="https://www.researchgate.net/profile/Aryan-Bhambu-2" target="_blank" rel="noreferrer">
+                            <span>📊</span><span>ResearchGate</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER ------------------------------------------------------------ -->
+    <footer>
+        &copy; 2025 Aryan Bhambu. All rights reserved.
+    </footer>
+
+    <!-- JS: smooth scroll, nav active state, fade-in ---------------------- -->
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinksContainer = document.getElementById('navLinks');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navLinksContainer.classList.toggle('open');
+            });
+        }
+
+        // Smooth scrolling + active link update on click
+        const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const targetId = link.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+
+                // Close mobile menu
+                navLinksContainer.classList.remove('open');
+
+                // Set active state
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('main section[id]');
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY || window.pageYOffset;
+            let currentId = 'home';
+
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (scrollPos >= top) {
+                    currentId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href').substring(1);
+                if (href === currentId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+
+        // Fade-in on scroll
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.15,
+                rootMargin: '0px 0px -40px 0px'
+            }
+        );
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
